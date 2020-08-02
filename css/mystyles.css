@@ -1,0 +1,55 @@
+nav#mainNav {
+    max-height: 100px;
+    border-bottom: 2px solid #FFF;
+}
+
+#pgcontrols {
+    margin-left: 250px;
+}
+
+section#pgreader {
+    min-height: 850px;
+    margin: -40px 0px 0px -200px;
+}
+
+div#page {
+    width: 120%;
+}
+div#page img {
+    width: 100%;
+}
+
+.dhreader .bg-primary {
+    background-color: #6f42c1 !important;
+}
+
+.msg {
+    width: 100%;
+    color: #FFFF00;
+    text-align: center;
+    padding: 4px 0px;
+}
+
+#pgnumber {
+    margin-left: 100px;
+    margin-bottom: -12px;
+    color: #EEEEEE;
+    font-size: 0.85rem;
+}
+
+.navbar-scrolled #pgnumber {
+    color: #555;
+}
+
+#pgcontrols .prev a, #pgcontrols .next a {
+    cursor: pointer;
+}
+
+#pgcontrols .prev a:hover, #pgcontrols .next a:hover {
+    cursor: pointer;
+    color: white;
+}
+
+#pgcontrols input#pgnumfield {
+    text-align: center;
+}
