@@ -1,7 +1,9 @@
 let pgviewer = {
     current: 221267,
     last: 221267,
-    diff: 221207, // The page before the first page of the text one wants to view
+    diff: 221207, // The page before the first page of the text one wants to view for Pelliot 116
+    p116end: 221333,
+    p116on: true,
     pgbase: 'http://idp.bl.uk/image_IDP.a4d?type=loadRotatedMainImage;recnum=__NUM__;rotate=0;imageType=_M',
     repstr: '__NUM__',
     next: function() {
@@ -30,16 +32,35 @@ let pgviewer = {
     function activateForm() {
         getCurrent();
         $('#pgnumfield').change(function(e) {
-            const v = $(this).val();
-            const newpg = v * 1 + pgviewer.diff;
-            changePage(newpg);
-        });
-        $('.next a').click(function() {
-            changePage(pgviewer.next());
+            doChange($(this));
         });
         $('.prev a').click(function() {
+            if ($(this).parent().hasClass('disabled')) { return; }
             changePage(pgviewer.prev());
         });
+        $('.next a').click(function() {
+            if ($(this).parent().hasClass('disabled')) { return; }
+            changePage(pgviewer.next());
+        });
+        $('#cb116').change(function(e) {
+            pgviewer.p116on = $('#cb116').is(':checked');
+            if (!pgviewer.p116on) {
+                $('#pgcontrols .prev, #pgcontrols .next').removeClass('disabled');
+                $('#pgnumfield').val(pgviewer.current);
+            } else {
+                $('#pgnumfield').val(pgviewer.current - pgviewer.diff);
+            }
+            doChange($('#pgnumfield'));
+        });
+    }
+
+    function doChange(el) {
+        const v = $(el).val();
+        let newpg = v;
+        if (pgviewer.p116on) {
+            newpg = v * 1 + pgviewer.diff;
+        }
+        changePage(newpg);
     }
 
     function getCurrent() {
@@ -55,7 +76,14 @@ let pgviewer = {
         }
         getImage(num);
         pgviewer.setCurrent(num);
-        const pgnum = num * 1 - pgviewer.diff;
+        let pgnum = num * 1;
+        if (pgviewer.p116on) {
+            $('#pgcontrols .next').toggleClass('disabled', (pgnum == pgviewer.p116end));
+            pgnum = pgnum - pgviewer.diff;
+            $('#pgcontrols .prev').toggleClass('disabled', (pgnum == 1));
+        } else {
+            $('#pgcontrols .prev, #pgcontrols .next').removeClass('disabled');
+        }
         $('#pgnumfield').val(pgnum);
         $('#pgnumber .num').text(num);
     }

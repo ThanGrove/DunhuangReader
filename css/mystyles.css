@@ -43,12 +43,22 @@ div#page img {
 
 #pgcontrols .prev a, #pgcontrols .next a {
     cursor: pointer;
+    color: red;
 }
 
 #pgcontrols .prev a:hover, #pgcontrols .next a:hover {
     cursor: pointer;
     color: white;
 }
+
+#pgcontrols .prev.disabled a, #pgcontrols .next.disabled a {
+    color: lightgrey;
+}
+
+#pgcontrols .prev.disabled a:hover, #pgcontrols .next.disabled a:hover {
+    cursor: default;
+}
+
 
 #pgcontrols input#pgnumfield {
     text-align: center;
