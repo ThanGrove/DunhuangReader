@@ -51,13 +51,22 @@ let pgviewer = {
         $('#cb116').change(function(e) {
             pgviewer.p116on = $('#cb116').is(':checked');
             if (!pgviewer.p116on) {
+                $(this).popover('show');
                 $('#pgcontrols .prev, #pgcontrols .next').removeClass('disabled');
                 $('#pgnumfield').val(pgviewer.current);
             } else {
                 $('#pgnumfield').val(pgviewer.current - pgviewer.diff);
             }
             doChange($('#pgnumfield'));
+
         });
+        if (window.location.host !== 'adfasdf') {
+            $('#cb116').popover({
+                trigger: 'hover',
+                title: 'Alert',
+                content: "Online an image proxy needs to be set if using this outside of P116 texts 5 and 6"
+            });
+        }
 
         // Https Proxy
         $('#useproxy').change(function(e) {
@@ -65,6 +74,7 @@ let pgviewer = {
             if (!$('#useproxy').is(':checked')) {
                 pgviewer.pgbase = pgviewer.dhpbase;
                 $('.label.proxy').attr('title', 'Not using proxy');
+                $('#cb116').popover('enable');
             }
         });
 
@@ -73,10 +83,12 @@ let pgviewer = {
             if (pgviewer.pgbase == '') {
                 pgviewer.pgbase = pgviewer.dhpbase;
                 $('.label.proxy').attr('title', 'Not using proxy');
+                $('#cb116').popover('enable');
+            } else {
+                $('.label.proxy').attr('title', 'Using proxy: ' + pgviewer.pgbase);
+                $('#cb116').popover('disable');
             }
             $('#proxyfield').removeClass('show');
-            $('.label.proxy').attr('title', 'Using proxy: ' + pgviewer.pgbase);
-
         });
     }
 
@@ -117,6 +129,10 @@ let pgviewer = {
     function getImage(num) {
         $('#pgimg').fadeOut();
         let url = pgviewer.pgbase.replace(pgviewer.repstr, num);
+        if (window.location.host !== '') {
+            url = 'https://raw.githubusercontent.com/ThanGrove/DunhuangReader/master/images/pelliot-116-' +
+                    num + '.jpg';
+        }
         $('#pgimg').attr('src', url).slideDown(500);
     }
 
