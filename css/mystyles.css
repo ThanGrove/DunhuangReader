@@ -57,6 +57,17 @@ section#pgreader {
 div#page {
     width: 120%;
 }
+
+div#page p.loadmsg {
+    margin: 8rem 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 1.25rem;
+    letter-spacing: 0.08rem;
+    font-style: italic;
+}
+
 div#page img {
     width: 100%;
 }

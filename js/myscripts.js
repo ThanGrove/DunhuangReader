@@ -90,6 +90,12 @@ let pgviewer = {
             }
             $('#proxyfield').removeClass('show');
         });
+
+        $('#page img').on('load', function(e) {
+            $('#pgimg').fadeIn(500);
+            $('#page .loadmsg').hide();
+        });
+
     }
 
     function doChange(el) {
@@ -127,13 +133,14 @@ let pgviewer = {
     }
 
     function getImage(num) {
-        $('#pgimg').fadeOut();
+        $('#pgimg').fadeOut(500);
+        $('#page .loadmsg').fadeIn(500);
         let url = pgviewer.pgbase.replace(pgviewer.repstr, num);
         if (window.location.host !== '') {
             url = 'https://raw.githubusercontent.com/ThanGrove/DunhuangReader/master/images/pelliot-116-' +
                     num + '.jpg';
         }
-        $('#pgimg').attr('src', url).slideDown(500);
+        $('#pgimg').attr('src', url);
     }
 
     function msg(txt) {
