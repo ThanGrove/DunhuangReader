@@ -75,16 +75,41 @@
         <!-- Services section-->
         <section class="page-section" id="about">
             <div class="container">
-                <h2 class="text-center mt-0">About this Page</h2>
+                <h2 class="text-center mt-0">Dunhuang Text Reader</h2>
                 <hr class="divider my-4" />
                 <div class="row">
-                    <div class="col-lg-12 col-md-6 text-center">
-                        <div class="mt-5">
-                            <h3 class="h4 mb-2">Reader</h3>
-                            <p class="text-muted mb-0">This page is a locally hosted page that accesses the International Dunhuang project
-                                (<a href="http://idp.bl.uk/" target="_blank">http://idp.bl.uk/</a>) to display text page scans
-                                based on their numeric ID/name. Their site does not have a good display of pages showing only a small
-                                viewport that has to be scrolled horizontally to read a page. This is a simple page flipper.</p>
+                    <div class="col-lg-12 col-md-6 ">
+                        <div class="mt-0">
+                            <h3 class="h4 mb-4 text-center">About</h3>
+                            <p class="text-muted mb-4">This simple Javascript site allows one to access scans of Dunhuang texts
+                                provided by the <a href="http://idp.bl.uk/" target="_blank">International Dunhuang project</a>
+                                (<a href="http://idp.bl.uk/" target="_blank">http://idp.bl.uk/</a>). That site is an valuable resource
+                                for scholars of Asian Buddhism in the 8<sup>th</sup>-9<sup>th</sup> century
+                                <span class="small">CE</span>. That site however does not provide a viable way for scholars
+                                to view the page scans and easily read them. The viewport for the images is too small.
+                                This site provides a larger frame within which to easily read the page images. All images
+                                are from the IDP.
+                            </p>
+                            <p class="text-muted mb-4">
+                                This simple “app” was written in order to read a particular text,
+                                the fifth text within Pelliot 116 (or sometimes considered the fifth and sixth text).
+                                For this reasons, the page scans for that text accompany the app and are initially
+                                displayed upon load. When the “P116” checkbox is checked, the page number navigation box
+                                displays the relative page of that text with page 60 being the first page in the text
+                                because it is the fifth text in P116. In the IDP this image has an ID of 221267.
+                                If that “P116” checkbox is unchecked, the absolute IDP ID number is displayed. Only the
+                                images for Pelliot 116 Text 5 are include in this repo and will display automatically.
+                            </p>
+                            <p class="text-muted mb-4">
+                                If you download or check out this Github repo, you can run this app locally without any
+                                further configuration, and if you can get the image numbers for a text, you can display
+                                it in this page viewer. However, that is not the case if viewing on line. IDP servers
+                                its images through deprecated HTTP and not the more secure HTTPS. Most browsers will
+                                either block HTTP images or redirect them to the same URL with HTTPS. This does not work
+                                for IDP images. Thus, to run this site on line for texts other than Pelliot 116, one
+                                will need to supply an HTTPS image proxy, that takes an image number parameter and return
+                                the image through HTTPS. This is set through clicking the other checkbox.
+                            </p>
                         </div>
                     </div>
                     <!--div class="col-lg-3 col-md-6 text-center">

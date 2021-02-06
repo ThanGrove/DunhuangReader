@@ -116,3 +116,8 @@ div#page img {
 #pgcontrols input#pgnumfield {
     text-align: center;
 }
+
+#mainNav .navbar-nav .nav-item .nav-link.active,
+#about a {
+    color: #6f42c1 !important;
+}
