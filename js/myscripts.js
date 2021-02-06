@@ -60,7 +60,7 @@ let pgviewer = {
             doChange($('#pgnumfield'));
 
         });
-        if (window.location.host !== 'adfasdf') {
+        if (window.location.host !== '') {
             $('#cb116').popover({
                 trigger: 'hover',
                 title: 'Alert',
