@@ -4,6 +4,7 @@ let pgviewer = {
     diff: 221207, // The page before the first page of the text one wants to view for Pelliot 116
     p116end: 221333,
     p116on: true,
+    dhpbase: 'http://idp.bl.uk/image_IDP.a4d?type=loadRotatedMainImage;recnum=__NUM__;rotate=0;imageType=_M',
     pgbase: 'http://idp.bl.uk/image_IDP.a4d?type=loadRotatedMainImage;recnum=__NUM__;rotate=0;imageType=_M',
     repstr: '__NUM__',
     next: function() {
@@ -20,6 +21,9 @@ let pgviewer = {
     setCurrent(num) {
         this.last = this.current;
         this.current = parseInt(num);
+    },
+    setProxy(proxyUrl) {
+        this.pgbase = proxyUrl;
     }
 };
 
@@ -31,6 +35,7 @@ let pgviewer = {
 
     function activateForm() {
         getCurrent();
+        // Page Controls
         $('#pgnumfield').change(function(e) {
             doChange($(this));
         });
@@ -42,6 +47,7 @@ let pgviewer = {
             if ($(this).parent().hasClass('disabled')) { return; }
             changePage(pgviewer.next());
         });
+        // Pelliot 116 toggle
         $('#cb116').change(function(e) {
             pgviewer.p116on = $('#cb116').is(':checked');
             if (!pgviewer.p116on) {
@@ -51,6 +57,26 @@ let pgviewer = {
                 $('#pgnumfield').val(pgviewer.current - pgviewer.diff);
             }
             doChange($('#pgnumfield'));
+        });
+
+        // Https Proxy
+        $('#useproxy').change(function(e) {
+            $('#proxyfield').toggleClass('show', $('#useproxy').is(':checked'));
+            if (!$('#useproxy').is(':checked')) {
+                pgviewer.pgbase = pgviewer.dhpbase;
+                $('.label.proxy').attr('title', 'Not using proxy');
+            }
+        });
+
+        $('#setproxy').click(function(e) {
+            pgviewer.pgbase = $('#proxyurl').val();
+            if (pgviewer.pgbase == '') {
+                pgviewer.pgbase = pgviewer.dhpbase;
+                $('.label.proxy').attr('title', 'Not using proxy');
+            }
+            $('#proxyfield').removeClass('show');
+            $('.label.proxy').attr('title', 'Using proxy: ' + pgviewer.pgbase);
+
         });
     }
 

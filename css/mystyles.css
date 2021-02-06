@@ -3,9 +3,51 @@ nav#mainNav {
     border-bottom: 2px solid #FFF;
 }
 
-#pgcontrols {
-    margin-left: 250px;
+div#globalcontrols {
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
+
+div#globalcontrols span {
+    margin-left: 1rem;
+}
+
+#proxyfield {
+    display: none;
+    width: 100%;
+}
+
+#proxyfield.show {
+    display: block;
+    position: absolute;
+    top: 60px;
+    border: 4px outset green;
+    padding: 1rem;
+    background: lightyellow;
+    width: 1050px;
+}
+#proxyfield p {
+    font-size: 0.9rem;
+}
+
+#proxyfield p.instructions {
+    font-style: italic;
+}
+
+#proxyfield .code {
+    font-family: monospace;
+}
+
+#proxyfield #setproxy {
+    margin-top: 1rem;
+    float: right;
+}
+
+#pgcontrols {
+    margin-left: 50px;
+    white-space: nowrap;
+}
+
 
 section#pgreader {
     min-height: 850px;

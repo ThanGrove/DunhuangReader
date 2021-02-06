@@ -22,8 +22,11 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">Dunhuang Text Reader</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div id="p116controls">
-                    <span class="label">P116</span> <input type="checkbox" id="cb116" name="cb116" checked="checked"/>
+                <div id="globalcontrols">
+                    <span class="label p116">P116</span>
+                        <input type="checkbox" id="cb116" name="cb116" checked="checked"/>
+                    <span class="label proxy" title="Not using proxy">Use HTTPS Proxy</span>
+                        <input type="checkbox" id="useproxy" name="useproxy" />
                 </div>
                 <div id="pgcontrols">
                     <span class="prev"><a><<</a></span>
@@ -38,6 +41,17 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li-->
                     </ul>
+                </div>
+                <div id="proxyfield">
+                    <p>Enter the image proxy URL (URL must contain a place holder
+                        <span class="code">__NUM__</span>
+                        for the image number):</p>
+                    <input id="proxyurl" name="proxyurl" size="100" />
+                    <p class="instructions">
+                        To use this site online, you must provide a image proxy with https since
+                        the International Dunhuang Project only serves images through http:
+                        <input type="button" name="setproxy" id="setproxy" value="Set Proxy URL" />
+                    </p>
                 </div>
             </div>
         </nav>
