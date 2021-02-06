@@ -133,8 +133,8 @@ let pgviewer = {
     }
 
     function getImage(num) {
-        $('#pgimg').fadeOut(500);
-        $('#page .loadmsg').fadeIn(500);
+        $('#pgimg').hide();
+        $('#page .loadmsg').show();
         let url = pgviewer.pgbase.replace(pgviewer.repstr, num);
         if (window.location.host !== '') {
             url = 'https://raw.githubusercontent.com/ThanGrove/DunhuangReader/master/images/pelliot-116-' +
