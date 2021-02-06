@@ -1,6 +1,29 @@
+
 nav#mainNav {
     max-height: 100px;
+    padding: 0 0 6px 0 !important;
     border-bottom: 2px solid #FFF;
+    background-color: #7b1515;
+}
+
+a.owner {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+}
+
+a.owner:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-scrolled a.owner {
+    color: grey;
+}
+
+.navbar-scrolled a.owner:hover {
+    color: purple;
 }
 
 div#globalcontrols {
@@ -8,8 +31,15 @@ div#globalcontrols {
     white-space: nowrap;
 }
 
-div#globalcontrols span {
+div#globalcontrols span,
+nav#mainNav .nav-link {
     margin-left: 1rem;
+    color: #EEE !important;
+}
+
+.navbar-scrolled div#globalcontrols span,
+.navbar-scrolled nav#mainNav .nav-link {
+    color: #333 !important;
 }
 
 #proxyfield {
@@ -73,51 +103,83 @@ div#page img {
 }
 
 .dhreader .bg-primary {
-    background-color: #6f42c1 !important;
+    background-color: #4b2492 !important;
+    /*background-color: #6f42c1 !important;*/
 }
 
 .msg {
-    width: 100%;
-    color: #FFFF00;
-    text-align: center;
-    padding: 4px 0px;
+width: 100%;
+color: #FFFF00;
+text-align: center;
+padding: 4px 0px;
 }
 
 #pgnumber {
-    margin-left: 100px;
-    margin-bottom: -12px;
-    color: #EEEEEE;
-    font-size: 0.85rem;
+margin-left: 100px;
+margin-bottom: -12px;
+color: #EEEEEE;
+font-size: 0.85rem;
 }
 
 .navbar-scrolled #pgnumber {
-    color: #555;
+color: #555;
 }
 
 #pgcontrols .prev a, #pgcontrols .next a {
-    cursor: pointer;
-    color: red;
+cursor: pointer;
+color: red;
 }
 
 #pgcontrols .prev a:hover, #pgcontrols .next a:hover {
-    cursor: pointer;
-    color: white;
+cursor: pointer;
+color: white;
 }
 
 #pgcontrols .prev.disabled a, #pgcontrols .next.disabled a {
-    color: lightgrey;
+color: lightgrey;
 }
 
 #pgcontrols .prev.disabled a:hover, #pgcontrols .next.disabled a:hover {
-    cursor: default;
+cursor: default;
 }
 
 
 #pgcontrols input#pgnumfield {
-    text-align: center;
+text-align: center;
 }
 
-#mainNav .navbar-nav .nav-item .nav-link.active,
+#mainNav .navbar-nav .nav-item .nav-link,
+#mainNav .navbar-nav .nav-item .nav-link.active {
+    color: #EEE !important;
+    font-weight: unset;
+    font-family: unset;
+    padding-top: 0.4rem;
+}
+
+#mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link,
+#mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link.active {
+    color: #555 !important;
+}
+
 #about a {
-    color: #6f42c1 !important;
+color: #6f42c1 !important;
+}
+
+.byline  {
+float: right;
+color: #6c757d !important;
+}
+
+.byline span {
+display: block;
+}
+
+.byline span.when {
+font-style: italic;
+font-size: 0.9rem;
+}
+
+#about .byline span a {
+color: #6c757d !important;
+font-size: 0.8rem;
 }
